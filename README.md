@@ -127,4 +127,21 @@ docker compose exec blockcastd blockcastd init
 
 ![image](https://github.com/user-attachments/assets/b7fd77ab-2ee0-4086-bb56-c2746ad8ee1e)
 
+If your nodes stop running after several day, try to rebuild your node.
+
+First, enter the blockcast folder:
+
+```cd blockcast```
+
+Folder name can be changed depends on your setting
+
+Stop docker compose:
+
+```docker compose down```
+
+
+Wait a few seconds till docker compose is totally down, type this to rebuild and restart your docker compose:
+
+```docker compose up --build -d```
+
 
