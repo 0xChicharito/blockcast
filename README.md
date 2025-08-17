@@ -131,17 +131,23 @@ If your nodes stop running after several day, try to rebuild your node.
 
 First, enter the blockcast folder:
 
-```cd blockcast```
+```bash
+cd blockcast
+```
 
 Folder name can be changed depends on your setting
 
 Stop docker compose:
 
-```docker compose down```
+```bash
+docker compose down
+```
 
 
 Wait a few seconds till docker compose is totally down, type this to rebuild and restart your docker compose:
 
-```docker compose up --build -d```
+```bash
+docker compose up --build -d
+```
 
 
