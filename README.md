@@ -150,4 +150,27 @@ Wait a few seconds till docker compose is totally down, type this to rebuild and
 docker compose up --build -d
 ```
 
+Edit your docker-compose.yml so that blockcastd automatically restarts if it fails, using restart: on-failure for that service only (keep unless-stopped for the rest):
 
+```bash
+blockcastd:
+    <<: *service
+    container_name: blockcastd
+    command: /usr/bin/blockcastd -logtostderr=true -v=0
+    network_mode: bridge
+    restart: on-failure  # 👈 override giá trị mặc định từ x-service
+```
+Re-built:
+```bash
+docker compose down
+docker compose up -d --build
+```
+Check logs:
+```bash
+docker compose logs -fn 1000
+```
+
+Check the config:
+```bash
+docker inspect blockcastd | grep -i restart
+```
